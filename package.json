@@ -4,7 +4,7 @@
   "title": "Tidal Controller",
   "description": "Control your local Tidal client with your keyboard.",
   "icon": "extension-icon.png",
-  "author": "0xdreamweaver",
+  "author": "broc-dev",
   "categories": [
     "Media"
   ],
