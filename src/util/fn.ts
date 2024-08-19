@@ -13,7 +13,6 @@ export async function checkTidalRunning(): Promise<boolean> {
           end if
         end tell
       `);
-    console.log("AppleScript result:", res); // Debug log
     const isRunning = res.trim().toLowerCase() === "true";
     if (!isRunning) {
       await showHUD("Tidal: Not running ❌");
@@ -39,4 +38,10 @@ interface Preferences {
 
 export function getPreferences(): Preferences {
   return getPreferenceValues<Preferences>();
+}
+
+export function showMessage(message: string) {
+  if (getPreferences().showMessages) {
+    showHUD(message);
+  }
 }

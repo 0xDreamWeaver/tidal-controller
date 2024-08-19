@@ -1,8 +1,7 @@
-import { showHUD } from "@raycast/api";
 import { closeMainWindow } from "@raycast/api";
 import { runAppleScript } from "run-applescript";
 
-import { runTidalCommand, getPreferences } from "./util/fn";
+import { runTidalCommand, showMessage } from "./util/fn";
 
 export default async function doPlayPause() {
   await runTidalCommand(async () => {
@@ -23,12 +22,6 @@ export default async function doPlayPause() {
           end tell
         end tell
       `);
-    if (getPreferences().showMessages) {
-      if (isNowPlaying === "true") {
-        await showHUD("Tidal: Music is now playing ▶️");
-      } else {
-        await showHUD("Tidal: Music is now paused ⏸️");
-      }
-    }
+    showMessage(isNowPlaying ? "Tidal: Music is now playing ▶️" : "Tidal: Music is now paused ⏸️");
   });
 }

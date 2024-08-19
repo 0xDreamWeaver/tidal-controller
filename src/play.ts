@@ -1,8 +1,7 @@
-import { showHUD } from "@raycast/api";
 import { closeMainWindow } from "@raycast/api";
 import { runAppleScript } from "run-applescript";
 
-import { runTidalCommand, getPreferences } from "./util/fn";
+import { runTidalCommand, showMessage } from "./util/fn";
 
 export default async function doPlay() {
   await runTidalCommand(async () => {
@@ -17,8 +16,6 @@ export default async function doPlay() {
           end if
         end tell
       end tell`);
-    if (getPreferences().showMessages) {
-      await showHUD("Tidal: Music is now playing ▶️");
-    }
+    showMessage("Tidal: Music is now playing ▶️");
   });
 }

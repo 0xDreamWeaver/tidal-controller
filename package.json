@@ -49,7 +49,7 @@
   ],
   "preferences": [
     {
-      "name": "show-messages",
+      "name": "showMessages",
       "label": "Show Messages",
       "type": "checkbox",
       "required": false,

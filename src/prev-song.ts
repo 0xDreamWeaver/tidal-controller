@@ -1,8 +1,7 @@
-import { showHUD } from "@raycast/api";
 import { closeMainWindow } from "@raycast/api";
 import { runAppleScript } from "run-applescript";
 
-import { runTidalCommand, getPreferences } from "./util/fn";
+import { runTidalCommand, showMessage } from "./util/fn";
 
 export default async function doPrevSong() {
   await runTidalCommand(async () => {
@@ -13,8 +12,6 @@ export default async function doPrevSong() {
           click menu item "Previous" of menu "Playback" of menu bar 1
         end tell
       end tell`);
-    if (getPreferences().showMessages) {
-      await showHUD("Tidal: Previous song ⏮️");
-    }
+    showMessage("Tidal: Previous song ⏮️");
   });
 }
