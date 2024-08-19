@@ -18,32 +18,32 @@
     },
     {
       "name": "next-song",
-      "title": "Next Song",
+      "title": "Next Track",
       "description": "Plays the next song in Tidal.",
       "mode": "no-view"
     },
     {
       "name": "prev-song",
-      "title": "Previous Song or Restart Song",
-      "description": "Plays the previous song in Tidal.",
+      "title": "Previous Track or Restart Track",
+      "description": "Plays the previous song in Tidal, or restarts the current song if it's already playing.",
       "mode": "no-view"
     },
     {
       "name": "pause",
-      "title": "Pause Song",
+      "title": "Pause Track",
       "description": "Pauses the current song in Tidal.",
       "mode": "no-view"
     },
     {
       "name": "play",
-      "title": "Play Song",
+      "title": "Play Track",
       "description": "Plays the current song in Tidal.",
       "mode": "no-view"
     },
     {
       "name": "shuffle",
       "title": "Toggle Shuffle",
-      "description": "Toggles shuffle mode in Tidal.",
+      "description": "Toggles on shuffle mode in Tidal.",
       "mode": "no-view"
     }
   ],
@@ -54,7 +54,7 @@
       "type": "checkbox",
       "required": false,
       "title": "Show Messages",
-      "description": "Show pop up messages when an action is performed, such as toggling play/pause. Will also show a message if the action fails for some reason.",
+      "description": "Show pop up messages when an action is performed, such as toggling play/pause. Will also show a message if the action fails for some reason. No messages will be shown (even errors) if this is disabled.",
       "default": true
     }
   ],
