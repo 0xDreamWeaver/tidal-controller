@@ -22,6 +22,6 @@ export default async function doPlayPause() {
           end tell
         end tell
       `);
-    showMessage(isNowPlaying ? "Tidal: Music is now playing ▶️" : "Tidal: Music is now paused ⏸️");
+    showMessage(isNowPlaying === "true" ? "Tidal: Music is now playing ▶️" : "Tidal: Music is now paused ⏸️");
   });
 }
