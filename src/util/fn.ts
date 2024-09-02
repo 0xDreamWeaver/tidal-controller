@@ -1,6 +1,7 @@
 import { showHUD } from "@raycast/api";
 import { runAppleScript } from "run-applescript";
 import { getPreferenceValues } from "@raycast/api";
+import { LanguageCode, getMenuOptionsByLanguage, MenuOptions } from "./lang";
 
 export async function checkTidalRunning(): Promise<boolean> {
   try {
@@ -34,10 +35,15 @@ export async function runTidalCommand(fn: () => Promise<void>): Promise<void> {
 
 interface Preferences {
   showMessages: boolean;
+  language: LanguageCode;
 }
 
 export function getPreferences(): Preferences {
   return getPreferenceValues<Preferences>();
+}
+
+export function getMenuOptions(): MenuOptions {
+  return getMenuOptionsByLanguage(getPreferences().language);
 }
 
 export function showMessage(message: string) {
