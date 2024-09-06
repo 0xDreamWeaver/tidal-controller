@@ -29,7 +29,12 @@ export async function checkTidalRunning(): Promise<boolean> {
 export async function runTidalCommand(fn: () => Promise<void>): Promise<void> {
   const tidalRunning = await checkTidalRunning();
   if (tidalRunning) {
-    await fn();
+    try {
+      await fn();
+    } catch (err) {
+      console.error("Error running Tidal command:", err);
+      await showHUD("Tidal: Error running command! ❌\nDid you choose the right language in your settings?");
+    }
   }
 }
 
