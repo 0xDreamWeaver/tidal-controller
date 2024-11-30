@@ -1,9 +1,16 @@
-import { showHUD } from "@raycast/api";
+import { showHUD, getApplications } from "@raycast/api";
 import { runAppleScript } from "run-applescript";
 import { getPreferenceValues } from "@raycast/api";
 import { LanguageCode, getMenuOptionsByLanguage, MenuOptions } from "./lang";
 
 export async function checkTidalRunning(): Promise<boolean> {
+  // Check if Tidal is installed
+  const applications = await getApplications();
+  if (!applications.some((app) => app.name === "Tidal")) {
+    await showHUD("Tidal: Not installed ❌");
+    return false;
+  }
+  // Check if Tidal is running
   try {
     const res = await runAppleScript(`
         tell application "System Events"
